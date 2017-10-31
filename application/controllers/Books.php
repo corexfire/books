@@ -12,7 +12,8 @@ class Books extends CI_Controller {
 
     public function index(){
             $data['data'] = $this->M_books->get_all_book();
-            $this->load->view('books',$data);
+            $data['content'] = $this->load->view('books',$data,true);
+            $this->load->view('index',$data);
     }
 
     public function form(){
@@ -24,7 +25,8 @@ class Books extends CI_Controller {
         $data['data'] = null;
 
         $data['types'] = $this->M_books->get_all_type();
-        $this->load->view('forms',$data);
+        $data['content'] = $this->load->view('forms',$data,true);
+        $this->load->view('index',$data);
     }
 
     public function add(){
